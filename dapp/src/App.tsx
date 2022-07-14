@@ -1,15 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from '@mantine/core'
+import ConnectButton from './components/connect_button'
+import { Provider } from '@self.id/framework'
+import { MetaMaskInpageProvider } from "@metamask/providers";
+
+declare global {
+  interface Window {
+    ethereum: MetaMaskInpageProvider;
+  }
+}
 
 function App() {
   return (
+    <Provider client={{ ceramic: 'testnet-clay' }}>
     <div className="App">
       <header className="App-header">
-        <Button>Connect wallet</Button>
+        <ConnectButton />
+        
       </header>
     </div>
+    </Provider>
   );
 }
 
