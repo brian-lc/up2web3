@@ -1,5 +1,6 @@
 import type { RequestState } from '@self.id/framework'
-import { Box, Button, Form, FormField, Heading, Paragraph, Text, TextArea } from 'grommet'
+import { Box, Form, FormField, Heading, Paragraph, Text, TextArea } from 'grommet'
+import { Button } from '@mantine/core'
 import type { GetServerSideProps } from 'next'
 
 import NotesList from '../../components/NotesList'
@@ -40,9 +41,9 @@ export default function NotePage({ did, id }: Props) {
   let contents = null
   if (note.content != null) {
     const titleButton = note.isEditing ? (
-      <Button disabled={note.isMutating} label="Cancel" onClick={() => note.toggleEditing(false)} />
+      <Button disabled={note.isMutating} onClick={() => note.toggleEditing(false)} >Cancel</Button>
     ) : note.isEditable ? (
-      <Button label="Edit" onClick={() => note.toggleEditing(true)} />
+      <Button onClick={() => note.toggleEditing(true)} >Edit</Button>
     ) : null
 
     const text = note.isEditing ? (

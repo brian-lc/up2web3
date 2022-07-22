@@ -8,6 +8,8 @@ import Layout from '../components/Layout'
 import { CERAMIC_NETWORK } from '../constants'
 import type { ModelTypes } from '../types'
 
+import { MantineProvider } from '@mantine/core';
+
 const aliases: ModelTypesToAliases<ModelTypes> = modelAliases
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -16,9 +18,18 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <SelfIDProvider client={{ ceramic: CERAMIC_NETWORK, aliases }} state={state} session={true}>
       <JotaiProvider>
-        <Layout>
-          <Component {...props} />
-        </Layout>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            /** Put your mantine theme override here */
+            colorScheme: 'light',
+          }}
+        >
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        </MantineProvider>
       </JotaiProvider>
     </SelfIDProvider>
   )

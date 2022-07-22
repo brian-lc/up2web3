@@ -4,7 +4,8 @@ import {
   useViewerID,
   useViewerRecord,
 } from '@self.id/framework'
-import { Avatar, Box, Button, DropButton, Text } from 'grommet'
+import { Avatar, Box, DropButton, Text } from 'grommet'
+import { Button } from '@mantine/core'
 import Link from 'next/link'
 import { useCallback, useState } from 'react'
 
@@ -22,14 +23,13 @@ function MenuButton({ label, ...props }: MenuButtonProps) {
     <Box pad="small">
       <Button
         alignSelf="start"
-        label={
+        plain
+        {...props}
+      >
           <Text color="neutral-2" weight="bold">
             {label}
           </Text>
-        }
-        plain
-        {...props}
-      />
+      </Button>
     </Box>
   )
 }
@@ -88,16 +88,15 @@ export default function AccountButton() {
             <Link href={`/${viewerID.id}`} passHref>
               <Button
                 alignSelf="start"
-                label={
-                  <Text color="neutral-2" weight="bold">
-                    My notes
-                  </Text>
-                }
                 onClick={() => {
                   setMenuOpen(false)
                 }}
                 plain
-              />
+              >
+                <Text color="neutral-2" weight="bold">
+                  My notes
+                </Text>
+              </Button>
             </Link>
           </Box>
           {buttons}
@@ -133,9 +132,10 @@ export default function AccountButton() {
     <Button
       primary
       color="black"
-      label="Connect"
       onClick={onClickConnect}
       style={{ border: 0, color: 'white' }}
-    />
+    >
+      Connect
+    </Button>
   )
 }

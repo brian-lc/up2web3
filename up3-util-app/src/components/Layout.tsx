@@ -1,4 +1,5 @@
-import { Box, Button, Grommet, type ThemeType } from 'grommet'
+import { Box, Grommet, type ThemeType } from 'grommet'
+import { Button } from '@mantine/core'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
@@ -26,7 +27,7 @@ export default function Layout({ children }: Props) {
         <Box direction="row" elevation="medium" pad="small">
           <Box>
             <Link href="/new" passHref>
-              <Button label="New note" />
+              <Button component="a">New Note</Button>
             </Link>
           </Box>
           <Box align="flex-end" flex>
