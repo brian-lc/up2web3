@@ -22,8 +22,6 @@ function MenuButton({ label, ...props }: MenuButtonProps) {
   return (
     <Box pad="small">
       <Button
-        alignSelf="start"
-        plain
         {...props}
       >
           <Text color="neutral-2" weight="bold">
@@ -87,11 +85,9 @@ export default function AccountButton() {
           <Box pad="small">
             <Link href={`/${viewerID.id}`} passHref>
               <Button
-                alignSelf="start"
                 onClick={() => {
                   setMenuOpen(false)
                 }}
-                plain
               >
                 <Text color="neutral-2" weight="bold">
                   My notes
@@ -130,7 +126,6 @@ export default function AccountButton() {
     <DisplayAvatar label="Connecting..." loading />
   ) : (
     <Button
-      primary
       color="black"
       onClick={onClickConnect}
       style={{ border: 0, color: 'white' }}

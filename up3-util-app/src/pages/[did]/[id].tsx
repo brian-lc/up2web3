@@ -59,11 +59,11 @@ export default function NotePage({ did, id }: Props) {
           <Button
             disabled={!note.isValid || note.isMutating}
             type="submit"
-            primary
             style={{ color: 'white' }}
-            label={note.isMutating ? 'Updating...' : 'Update note'}
-          />
-          <Button disabled={note.isMutating} type="reset" label="Reset" />
+          >
+            {note.isMutating ? 'Updating...' : 'Update note'}
+          </Button>
+          <Button disabled={note.isMutating} type="reset">Reset</Button>
         </Box>
       </Form>
     ) : (
